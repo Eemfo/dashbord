@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍺 Пинта Ворошиловский</title>
+<style>
+:root{
+--bg:#0d1117;
+--card:#161b22;
+--border:#30363d;
+--text:#c9d1d9;
+--muted:#8b949e;
+--accent:#f4a261;
+--accent-hover:#e8963a;
+--success:#2ecc71;
+--shadow:rgba(244,162,97,.1);
+--toggle-bg:#21262d;
+}
+[data-theme="light"]{
+--bg:#f5f5f5;
+--card:#ffffff;
+--border:#e0e0e0;
+--text:#1a1a2e;
+--muted:#666;
+--accent:#e67e22;
+--accent-hover:#d35400;
+--success:#27ae60;
+--shadow:rgba(0,0,0,.08);
+--toggle-bg:#e0e0e0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);padding:16px;min-height:100vh;transition:background .3s,color .3s}
+.container{max-width:500px;margin:0 auto}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.topbar h1{font-size:1.3rem;color:var(--accent)}
+.theme-btn{background:var(--toggle-bg);border:1px solid var(--border);border-radius:50%;width:42px;height:42px;font-size:1.3rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.theme-btn:hover{border-color:var(--accent);transform:scale(1.05)}
+
+.header{text-align:center;margin-bottom:28px}
+.header .logo{font-size:3.5rem;margin-bottom:8px}
+.header h2{color:var(--accent);font-size:1.4rem;margin-bottom:4px}
+.header p{color:var(--muted);font-size:.85rem}
+
+.grid{display:grid;gap:14px}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;cursor:pointer;transition:all .2s;text-decoration:none;display:block;color:inherit}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 6px 24px var(--shadow)}
+.card:active{transform:translateY(-1px)}
+
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+.card-icon{font-size:2.2rem}
+.card-arrow{color:var(--muted);font-size:1.3rem;transition:all .2s}
+.card:hover .card-arrow{color:var(--accent);transform:translateX(4px)}
+
+.card-title{font-size:1.1rem;font-weight:700;margin-bottom:6px;color:var(--accent)}
+.card-desc{color:var(--muted);font-size:.85rem;line-height:1.5}
+
+.card-footer{display:flex;align-items:center;gap:8px;margin-top:14px}
+.badge{display:inline-block;background:var(--toggle-bg);border:1px solid var(--border);font-size:.68rem;padding:3px 10px;border-radius:20px;color:var(--muted);font-weight:600}
+.badge.hot{background:rgba(230,126,34,.12);border-color:var(--accent);color:var(--accent)}
+.badge.new{background:rgba(46,204,113,.12);border-color:var(--success);color:var(--success)}
+
+.footer{text-align:center;margin-top:36px;padding-top:20px;border-top:1px solid var(--border)}
+.footer p{color:var(--muted);font-size:.75rem}
+.footer .update{color:var(--accent);font-weight:600}
+
+@media(min-width:480px){
+.grid{grid-template-columns:1fr 1fr}
+.header .logo{font-size:4rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<h1>🍺 Пинта Ворошиловский</h1>
+<button class="theme-btn" onclick="toggleTheme()" title="Сменить тему">☀️</button>
+</div>
+
+<div class="header">
+<div class="logo">🍺</div>
+<h2>Панель управления</h2>
+<p>Быстрый доступ к инструментам бара</p>
+</div>
+
+<div class="grid">
+
+<!-- ГРАФИК БАРМЕНОВ -->
+<a href="https://eemfo.github.io/-/" class="card" target="_blank">
+<div class="card-top">
+<div class="card-icon">📅</div>
+<div class="card-arrow">→</div>
+</div>
+<div class="card-title">График барменов</div>
+<div class="card-desc">Составление смен, расчёт часов, автозаполнение, выгрузка в Excel</div>
+<div class="card-footer">
+<span class="badge hot">🔥 Главное</span>
+<span class="badge">Активен</span>
+</div>
+</a>
+
+<!-- СКЛАД -->
+<a href="#" class="card" onclick="alert('В разработке');return false">
+<div class="card-top">
+<div class="card-icon">📦</div>
+<div class="card-arrow">→</div>
+</div>
+<div class="card-title">Склад и запасы</div>
+<div class="card-desc">МТЗ, Закупочные листы</div>
+<div class="card-footer">
+<span class="badge">Скоро</span>
+</div>
+</a>
+
+<!-- ДРУГОЕ -->
+<a href="#" class="card" onclick="alert('В разработке');return false">
+<div class="card-top">
+<div class="card-icon">💰</div>
+<div class="card-arrow">→</div>
+</div>
+<div class="card-title">Что-то будет</div>
+<div class="card-desc">Открываем пиво, и думаем что добавить</div>
+<div class="card-footer">
+<span class="badge">Скоро</span>
+</div>
+</a>
+
+<!-- ЧЕК-ЛИСТЫ — ОБНОВЛЕННАЯ ССЫЛКА -->
+<a href="https://eemfo.github.io/chelistbot/" class="card" target="_blank">
+<div class="card-top">
+<div class="card-icon">📋</div>
+<div class="card-arrow">→</div>
+</div>
+<div class="card-title">Чек-листы</div>
+<div class="card-desc">Открытие/закрытие смены, инвентаризация</div>
+<div class="card-footer">
+<span class="badge new">New</span>
+<span class="badge">Активен</span>
+</div>
+</a>
+
+</div>
+
+<div class="footer">
+<p>Пинта Ворошиловский © 2026</p>
+<p style="margin-top:4px">Последнее обновление: <span class="update" id="date"></span></p>
+</div>
+
+</div>
+
+<script>
+function toggleTheme(){
+const html=document.documentElement;
+const btn=document.querySelector('.theme-btn');
+if(html.getAttribute('data-theme')==='light'){
+html.removeAttribute('data-theme');
+btn.textContent='☀️';
+localStorage.setItem('theme','dark');
+}else{
+html.setAttribute('data-theme','light');
+btn.textContent='🌙';
+localStorage.setItem('theme','light');
+}
+}
+const saved=localStorage.getItem('theme');
+if(saved==='light'){
+document.documentElement.setAttribute('data-theme','light');
+document.querySelector('.theme-btn').textContent='🌙';
+}
+document.getElementById('date').textContent=new Date().toLocaleDateString('ru-RU');
+</script>
+</body>
+</html>
